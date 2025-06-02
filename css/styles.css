@@ -104,16 +104,63 @@ li {
     padding: 0 20px;
 }
 
+/* Banner de Desarrollo */
+.dev-banner {
+    background: #dc3545;
+    color: white;
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dev-banner i {
+    margin-right: 8px;
+}
+
+.dev-banner .close-banner {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.dev-banner .close-banner:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dev-banner.hidden {
+    display: none;
+}
+
 /* Header y Navegación */
 .header {
     background: var(--background-white);
     box-shadow: var(--shadow-light);
     position: fixed;
-    top: 0;
+    top: 40px; /* Espacio para el banner */
     left: 0;
     right: 0;
     z-index: 1000;
     transition: var(--transition);
+}
+
+.header.no-banner {
+    top: 0;
 }
 
 .nav-container {
@@ -200,6 +247,11 @@ li {
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+    padding-top: 110px; /* Espacio para header + banner */
+}
+
+.hero.no-banner {
+    padding-top: 70px; /* Solo espacio para header */
 }
 
 .hero-background {
@@ -1422,6 +1474,17 @@ li {
 
     .servicios-content {
         min-height: 200px;
+    }
+
+    /* Banner responsive */
+    .dev-banner {
+        font-size: 0.8rem;
+        padding: 6px 15px;
+    }
+
+    .dev-banner .close-banner {
+        right: 15px;
+        font-size: 1rem;
     }
 }
 

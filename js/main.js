@@ -405,3 +405,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Andújar Salud - Sitio web cargado correctamente');
 });
+
+// Función para cerrar el banner de desarrollo
+function closeBanner() {
+    const banner = document.getElementById('devBanner');
+    const header = document.querySelector('.header');
+    const hero = document.querySelector('.hero');
+
+    if (banner) {
+        banner.classList.add('hidden');
+
+        // Ajustar posición del header
+        if (header) {
+            header.classList.add('no-banner');
+        }
+
+        // Ajustar padding del hero
+        if (hero) {
+            hero.classList.add('no-banner');
+        }
+
+        // Guardar preferencia en localStorage
+        localStorage.setItem('devBannerClosed', 'true');
+    }
+}
+
+// Verificar si el banner debe estar oculto al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    const bannerClosed = localStorage.getItem('devBannerClosed');
+
+    if (bannerClosed === 'true') {
+        closeBanner();
+    }
+});
