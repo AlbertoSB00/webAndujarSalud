@@ -255,20 +255,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (tabBtns.length === 0) return;
 
-        // Inicializar estado inicial
+        // Inicializar estado inicial - respetar el HTML inicial
         function initializeTabs() {
-            // Limpiar todos los estados primero
-            tabBtns.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-                content.style.display = 'none';
-            });
+            // Verificar si ya hay un tab activo en el HTML
+            const activeBtn = document.querySelector('.tab-btn.active');
+            const activeContent = document.querySelector('.tab-content.active');
 
-            // Activar el primer tab
+            // Si ya hay elementos activos en el HTML, no hacer nada
+            if (activeBtn && activeContent) {
+                console.log('Tab inicial ya activo:', activeContent.id);
+                return;
+            }
+
+            // Solo si no hay elementos activos, activar el primero
             const firstBtn = tabBtns[0];
             const firstContent = document.getElementById(firstBtn.getAttribute('data-tab'));
 
             if (firstBtn && firstContent) {
+                // Limpiar todos primero
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => {
+                    content.classList.remove('active', 'initial-load');
+                });
+
+                // Activar el primero
                 firstBtn.classList.add('active');
                 firstContent.classList.add('active', 'initial-load');
             }
@@ -278,20 +288,19 @@ document.addEventListener('DOMContentLoaded', function() {
         function calculateMaxHeight() {
             let maxHeight = 0;
             tabContents.forEach(content => {
-                // Temporalmente mostrar el contenido para medir
-                content.style.display = 'block';
-                content.style.position = 'relative';
-                content.style.opacity = '0';
+                // Temporalmente añadir clase active para medir
+                const wasActive = content.classList.contains('active');
+                content.classList.add('active');
 
                 const height = content.offsetHeight;
                 if (height > maxHeight) {
                     maxHeight = height;
                 }
 
-                // Ocultar de nuevo
-                content.style.display = 'none';
-                content.style.position = 'absolute';
-                content.style.opacity = '1';
+                // Restaurar estado original
+                if (!wasActive) {
+                    content.classList.remove('active');
+                }
             });
 
             // Establecer altura mínima
@@ -302,6 +311,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Inicializar inmediatamente
         initializeTabs();
+
+        // Limpiar clases de animación después de que terminen
+        setupAnimationCleanup();
 
         // Calcular altura al cargar
         setTimeout(() => {
@@ -318,38 +330,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Si ya está activo, no hacer nada
                 if (this.classList.contains('active')) return;
 
-                // Remover clase active de todos los botones y contenidos
+                // Encontrar el contenido actualmente activo
+                const currentActiveContent = document.querySelector('.tab-content.active');
+
+                // Remover clase active de todos los botones
                 tabBtns.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(content => {
-                    content.classList.remove('active', 'initial-load');
-                    // Usar transición CSS en lugar de JavaScript
-                    content.style.opacity = '0';
-                    content.style.transform = 'translateY(20px)';
 
+                // Si hay contenido activo, animarlo hacia fuera
+                if (currentActiveContent && currentActiveContent !== targetContent) {
+                    currentActiveContent.classList.add('fade-out');
+
+                    // Después de la animación de salida, ocultar y mostrar el nuevo
                     setTimeout(() => {
-                        if (!content.classList.contains('active')) {
-                            content.style.display = 'none';
-                        }
-                    }, 300);
-                });
+                        // Limpiar el contenido anterior
+                        tabContents.forEach(content => {
+                            content.classList.remove('active', 'initial-load', 'fade-in', 'fade-out');
+                        });
 
-                // Activar nuevo contenido después de un pequeño delay
-                setTimeout(() => {
+                        // Activar nuevo contenido con animación
+                        this.classList.add('active');
+                        targetContent.classList.add('active', 'fade-in');
+                    }, 300); // Duración de la animación fade-out
+                } else {
+                    // Si no hay contenido activo o es el mismo, activar directamente
+                    tabContents.forEach(content => {
+                        content.classList.remove('active', 'initial-load', 'fade-in', 'fade-out');
+                    });
+
                     this.classList.add('active');
-                    targetContent.style.display = 'block';
-                    targetContent.classList.add('active');
-
-                    // Trigger reflow para asegurar que la transición funcione
-                    targetContent.offsetHeight;
-
-                    targetContent.style.opacity = '1';
-                    targetContent.style.transform = 'translateY(0)';
-                }, 150);
+                    targetContent.classList.add('active', 'fade-in');
+                }
             });
         });
 
         // Recalcular altura en resize
         window.addEventListener('resize', debounce(calculateMaxHeight, 250));
+
+        // Función para limpiar clases de animación
+        function setupAnimationCleanup() {
+            tabContents.forEach(content => {
+                content.addEventListener('animationend', function(e) {
+                    // Limpiar clases de animación después de que terminen
+                    if (e.animationName === 'slideInRight' || e.animationName === 'fadeInUp') {
+                        this.classList.remove('fade-in', 'initial-load');
+                    }
+                    if (e.animationName === 'fadeOut') {
+                        this.classList.remove('fade-out');
+                    }
+                });
+            });
+        }
     }
 
     // Configurar slider de testimonios
@@ -406,35 +436,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Andújar Salud - Sitio web cargado correctamente');
 });
 
-// Función para cerrar el banner de desarrollo
-function closeBanner() {
-    const banner = document.getElementById('devBanner');
-    const header = document.querySelector('.header');
-    const hero = document.querySelector('.hero');
 
-    if (banner) {
-        banner.classList.add('hidden');
-
-        // Ajustar posición del header
-        if (header) {
-            header.classList.add('no-banner');
-        }
-
-        // Ajustar padding del hero
-        if (hero) {
-            hero.classList.add('no-banner');
-        }
-
-        // Guardar preferencia en localStorage
-        localStorage.setItem('devBannerClosed', 'true');
-    }
-}
-
-// Verificar si el banner debe estar oculto al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    const bannerClosed = localStorage.getItem('devBannerClosed');
-
-    if (bannerClosed === 'true') {
-        closeBanner();
-    }
-});

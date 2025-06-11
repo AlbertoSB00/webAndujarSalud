@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas las Reseñas - Andújar Salud</title>
+    <meta name="description" content="Lee todas las reseñas y opiniones de nuestros pacientes sobre Andújar Salud. Testimonios reales de Google Maps.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/reviews.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="assets/images/logo.png" alt="Andújar Salud" class="logo">
+                    <span class="logo-text">Andújar Salud</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#servicios" class="nav-link">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#testimonios" class="nav-link">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#instalaciones" class="nav-link">Instalaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">Quiénes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="resenas-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Reseñas de Nuestros Pacientes</h1>
+                <p>Opiniones reales de Google Maps sobre Andújar Salud</p>
+                <div class="resumen-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="total-resenas">0</span>
+                        <span class="stat-label">Reseñas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="promedio-rating">0</span>
+                        <span class="stat-label">Promedio</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="resenas-positivas">0%</span>
+                        <span class="stat-label">Positivas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filtros-section">
+        <div class="container">
+            <div class="filtros-container">
+                <div class="filtro-grupo">
+                    <label for="filtro-estrellas">Filtrar por calificación:</label>
+                    <select id="filtro-estrellas" class="filtro-select">
+                        <option value="todas">Todas las calificaciones</option>
+                        <option value="5">5 estrellas</option>
+                        <option value="4">4 estrellas</option>
+                        <option value="3">3 estrellas</option>
+                        <option value="2">2 estrellas</option>
+                        <option value="1">1 estrella</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <label for="filtro-fecha">Ordenar por:</label>
+                    <select id="filtro-fecha" class="filtro-select">
+                        <option value="recientes">Más recientes</option>
+                        <option value="antiguas">Más antiguas</option>
+                        <option value="mejor-valoradas">Mejor valoradas</option>
+                        <option value="peor-valoradas">Peor valoradas</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <input type="text" id="buscar-texto" class="filtro-input" placeholder="Buscar en reseñas...">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista de Reseñas -->
+    <section class="resenas-lista">
+        <div class="container">
+            <div id="resenas-container" class="resenas-grid">
+                <!-- Las reseñas se cargarán aquí dinámicamente -->
+            </div>
+            <div id="no-resultados" class="no-resultados" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No se encontraron reseñas</h3>
+                <p>Intenta ajustar los filtros para ver más resultados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">¿Quieres ser nuestro próximo paciente satisfecho?</h2>
+                <p class="cta-subtitle">Únete a los cientos de pacientes que confían en Andújar Salud para su bienestar.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Solicitar Cita</a>
+                    <a href="tel:953505101" class="btn btn-outline">
+                        <i class="fas fa-phone"></i>
+                        953 505 101
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/reviews.js"></script>
+</body>
+</html>

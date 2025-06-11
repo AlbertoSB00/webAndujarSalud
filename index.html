@@ -5,26 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andújar Salud - Clínica Médica desde 1995</title>
     <meta name="description" content="Andújar Salud, clínica médica de confianza desde 1995. Especialistas en psiquiatría, psicología, traumatología, dermatología y más en Andújar, Jaén.">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Banner de Desarrollo -->
-    <div class="dev-banner" id="devBanner">
-        <i class="fas fa-exclamation-triangle"></i>
-        <strong>SITIO WEB EN DESARROLLO</strong> - Esta página no es funcional y está en proceso de construcción
-        <button class="close-banner" onclick="closeBanner()" title="Cerrar banner">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-
     <!-- Header -->
     <header class="header">
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="images/logo.png" alt="Andújar Salud" class="logo">
+                    <img src="assets/images/logo.png" alt="Andújar Salud" class="logo">
                     <span class="logo-text">Andújar Salud</span>
                 </div>
                 <ul class="nav-menu">
@@ -41,10 +32,10 @@
                         <a href="#instalaciones" class="nav-link">Instalaciones</a>
                     </li>
                     <li class="nav-item">
-                        <a href="quienes-somos.html" class="nav-link">Quiénes Somos</a>
+                        <a href="about.html" class="nav-link">Quiénes Somos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="contacto.html" class="nav-link">Contacto</a>
+                        <a href="contact.html" class="nav-link">Contacto</a>
                     </li>
                 </ul>
                 <div class="nav-toggle">
@@ -89,7 +80,7 @@
                 </div>
             </div>
             <div class="hero-actions">
-                <a href="contacto.html" class="btn-cta">
+                <a href="contact.html" class="btn-cta">
                     <span class="btn-text">Solicitar Cita</span>
                     <span class="btn-icon">📞</span>
                 </a>
@@ -328,6 +319,12 @@
                 </div>
                 <button class="control-btn next">›</button>
             </div>
+            <div class="testimonios-actions">
+                <a href="reviews.html" class="btn btn-outline">
+                    <i class="fas fa-star"></i>
+                    Ver todas las reseñas
+                </a>
+            </div>
         </div>
     </section>
 
@@ -374,7 +371,7 @@
                 <h2 class="cta-title">¿Necesitas una consulta médica?</h2>
                 <p class="cta-subtitle">Estamos aquí para cuidar de tu salud. Contacta con nosotros para solicitar una cita.</p>
                 <div class="cta-buttons">
-                    <a href="contacto.html" class="btn btn-primary">Solicitar Cita</a>
+                    <a href="contact.html" class="btn btn-primary">Solicitar Cita</a>
                     <a href="tel:953505101" class="btn btn-outline">
                         <i class="fas fa-phone"></i>
                         953 505 101
@@ -429,8 +426,8 @@
                 <div class="footer-section">
                     <h3 class="footer-title">Enlaces</h3>
                     <ul class="footer-links">
-                        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="about.html">Quiénes Somos</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#testimonios">Testimonios</a></li>
                         <li><a href="#instalaciones">Instalaciones</a></li>
@@ -456,6 +453,7 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/testimonials.js"></script>
 </body>
 </html>

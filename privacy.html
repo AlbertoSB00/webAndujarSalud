@@ -5,26 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad - Andújar Salud</title>
     <meta name="description" content="Política de privacidad de Andújar Salud. Información sobre el tratamiento de datos personales y protección de la privacidad.">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Banner de Desarrollo -->
-    <div class="dev-banner" id="devBanner">
-        <i class="fas fa-exclamation-triangle"></i>
-        <strong>SITIO WEB EN DESARROLLO</strong> - Esta página no es funcional y está en proceso de construcción
-        <button class="close-banner" onclick="closeBanner()" title="Cerrar banner">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-
     <!-- Header -->
     <header class="header">
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="images/logo.png" alt="Andújar Salud" class="logo">
+                    <img src="assets/images/logo.png" alt="Andújar Salud" class="logo">
                     <span class="logo-text">Andújar Salud</span>
                 </div>
                 <ul class="nav-menu">
@@ -32,16 +23,19 @@
                         <a href="index.html" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.html#especialidades" class="nav-link">Especialidades</a>
+                        <a href="index.html#servicios" class="nav-link">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.html#equipo" class="nav-link">Equipo Médico</a>
+                        <a href="index.html#testimonios" class="nav-link">Testimonios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="quienes-somos.html" class="nav-link">Quiénes Somos</a>
+                        <a href="index.html#instalaciones" class="nav-link">Instalaciones</a>
                     </li>
                     <li class="nav-item">
-                        <a href="contacto.html" class="nav-link">Contacto</a>
+                        <a href="about.html" class="nav-link">Quiénes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contacto</a>
                     </li>
                 </ul>
                 <div class="nav-toggle">
@@ -135,84 +129,13 @@
                 </div>
 
                 <div style="margin-top: 3rem; text-align: center;">
-                    <a href="contacto.html" class="btn btn-primary">Contactar</a>
+                    <a href="contact.html" class="btn btn-primary">Contactar</a>
                     <a href="index.html" class="btn btn-secondary">Volver al Inicio</a>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="images/logo.png" alt="Andújar Salud" class="logo">
-                        <span class="logo-text">Andújar Salud</span>
-                    </div>
-                    <p class="footer-description">
-                        Clínica médica de confianza desde 1995, comprometida con la salud y bienestar de nuestros pacientes.
-                    </p>
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/profile.php?id=61557714224351" target="_blank" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://twitter.com/AndujarSalud" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Contacto</h3>
-                    <div class="footer-contact">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>C. de la Peseta, 9<br>23740 Andújar, Jaén</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>953 505 101</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>658 221 036</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>info@andujarsalud.es</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Enlaces</h3>
-                    <ul class="footer-links">
-                        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                        <li><a href="index.html#especialidades">Especialidades</a></li>
-                        <li><a href="index.html#equipo">Equipo Médico</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-                        <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Andújar Salud. Todos los derechos reservados.</p>
-                <p class="footer-quote">"La salud es un estado de completo bienestar físico, mental y social" - OMS</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
