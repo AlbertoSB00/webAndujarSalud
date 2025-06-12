@@ -800,7 +800,7 @@ li {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
-    min-height: 220px;
+    min-height: 280px;
     padding: 0 1rem;
 }
 
@@ -821,7 +821,7 @@ li {
 
 .testimonio-content {
     background: white;
-    padding: 2rem 2.5rem;
+    padding: 2.5rem 2.5rem;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
@@ -838,7 +838,7 @@ li {
     font-size: 1.2rem;
     color: var(--text-light);
     line-height: 1.7;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     font-style: italic;
 }
 
@@ -1391,7 +1391,7 @@ li {
 
     .testimonios-slider {
         padding: 0 0.5rem;
-        min-height: 250px;
+        min-height: 320px;
     }
 
     .testimonio-content {
