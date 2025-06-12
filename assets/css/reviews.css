@@ -36,6 +36,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+    color: white;
 }
 
 .resumen-stats .stat-label {
@@ -215,6 +216,7 @@
     
     .resumen-stats .stat-number {
         font-size: 2rem;
+        color: white;
     }
     
     .filtros-container {

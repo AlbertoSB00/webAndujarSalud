@@ -180,6 +180,7 @@ class ResenasManager {
 
     init() {
         this.calcularEstadisticas();
+        this.aplicarOrdenInicial();
         this.renderResenas();
         this.setupEventListeners();
     }
@@ -194,6 +195,11 @@ class ResenasManager {
         document.getElementById('total-resenas').textContent = totalResenas;
         document.getElementById('promedio-rating').textContent = promedio;
         document.getElementById('resenas-positivas').textContent = porcentajePositivas + '%';
+    }
+
+    aplicarOrdenInicial() {
+        // Ordenar por fecha más reciente por defecto
+        this.resenasFiltradas.sort((a, b) => b.fechaOrden - a.fechaOrden);
     }
 
     renderResenas() {
